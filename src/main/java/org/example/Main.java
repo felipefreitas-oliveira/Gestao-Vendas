@@ -7,6 +7,8 @@ import org.example.persistencias.ClienteDAO;
 import org.example.persistencias.ProdutoDAO;
 import org.example.persistencias.VendaDAO;
 
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
         Produto produto = new Produto();
@@ -24,11 +26,13 @@ public class Main {
         cliente.setEmail("teste@teste.com");
 
         ClienteDAO clienteDAO = new ClienteDAO();
-
         clienteDAO.salvar(cliente);
 
 
-        //Venda venda = new Venda();
+        Venda venda = new Venda();
+        venda.setCliente(cliente);
+        venda.setDataVenda(LocalDate.now());
+        venda.setTotal(20.10);
 
 //        VendaDAO vendaDAO = new VendaDAO();
 //        Venda vendaExistente = vendaDAO.listarVendaPorID(1L);

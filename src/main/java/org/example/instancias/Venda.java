@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -18,7 +19,8 @@ public class Venda {
     private Cliente cliente;
 
     @ManyToMany
-    private Produto produto;
+    private List<Produto> produtos;
+
     private LocalDate dataVenda;
     private Double total;
 }
